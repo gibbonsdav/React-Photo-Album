@@ -1,0 +1,9 @@
+.title {
+  font-size: x-large;
+  padding: 30px;
+  background: grey;
+  width: 800px;
+  text-justify: center;
+  text-align: center;
+  /* margin: 500px; */
+}

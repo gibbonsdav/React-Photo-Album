@@ -1,0 +1,48 @@
+.container {
+  /* display: flex; */
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.title {
+  font-size: x-large;
+  padding: 30px;
+  background: grey;
+  width: 800px;
+  text-justify: center;
+  text-align: center;
+  /* margin: 500px; */
+}
+
+.albums {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  padding: 25px;
+  /* margin: 50px; */
+  width: 700px;
+  justify-self: center;
+  grid-row-gap: 15px;
+  align-items: center;
+  text-decoration: none;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+.albumbox {
+  padding: 20px;
+  margin: 10px;
+}
+
+p {
+  text-decoration: none;
+  text-align: center;
+}
