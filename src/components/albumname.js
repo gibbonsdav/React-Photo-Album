@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import albumname from "./albumname"
+import "../styles/myalbums.css"
 import axios from "axios"
 import { useState, useEffect } from "react"
-import "../styles/albumname.css"
 
-export default function(props) {
+export default props => {
   const [albums, setAlbums] = useState([])
-  const id = props.match.params.id
 
   function fetchAlbums() {
     axios.get("/albums").then(resp => {
@@ -20,7 +20,18 @@ export default function(props) {
   return (
     <div className="container">
       <div className="title">
-        <p>Album Name</p>
+        <p>My Albums</p>
+      </div>
+
+      <div className="albums">
+        {albums.map(album => (
+          <Link to={"/albums/" + album.id}>
+            <div className="albumbox">
+              <img src={album.coverPhoto} />
+              <p>{album.name}</p>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   )
