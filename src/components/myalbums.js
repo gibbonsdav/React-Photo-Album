@@ -5,7 +5,7 @@ import "../styles/myalbums.css"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-export default function() {
+export default props => {
   const [albums, setAlbums] = useState([])
 
   function fetchAlbums() {
@@ -25,7 +25,7 @@ export default function() {
 
       <div className="albums">
         {albums.map(album => (
-          <Link to={`/albums/${album.id}`}>
+          <Link to={"/albums/" + album.id}>
             <div className="albumbox">
               <img src={album.coverPhoto} />
               <p>{album.name}</p>
