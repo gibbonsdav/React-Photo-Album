@@ -1,48 +1,38 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import albumname from "./albumname"
+import "../styles/myalbums.css"
 import axios from "axios"
 import { useState, useEffect } from "react"
-// import "../styles/albumname.css"
-import myalbums from "./myalbums"
-// import "../actions/actionfile.js"
 
 export default props => {
-  const [photos, setPhotos] = useState([])
+  const [albums, setAlbums] = useState([])
 
-  const [albumname, setAlbumName] = useState([])
-
-  // function fetchAlbums() {
-  //   axios.get("/albums").then(resp => {
-  //     setAlbums(resp.data)
-  //   })
-  // }
-
-  function fetchPhotos(id) {
-    axios.get(`/albums/${id}?_embed=photos`).then(resp => {
-      setPhotos(resp.data.photos)
-      setAlbumName(resp.data.name)
+  function fetchAlbums() {
+    axios.get("/albums").then(resp => {
+      setAlbums(resp.data)
     })
   }
-
-  // function fetchAlbumName() {
-  //   axios.get("`/albums/${id}?_embed=photos`").then(resp => {
-  //     setAlbumName(resp.data)
-  //   })
-  // }
-
   useEffect(() => {
-    const id = props.match.params.id
-    fetchPhotos(id)
+    fetchAlbums()
   }, [])
 
   return (
     <div className="container">
-      <p>{albumname}</p>
-      {photos.map(photo => (
-        <Link to={"/picname/" + photo.id}>
-          <img src={photo.url} />
-        </Link>
-      ))}
+      <div className="title">
+        <p>My Albums</p>
+      </div>
+
+      <div className="albums">
+        {albums.map(album => (
+          <Link to={"/albums/" + album.id}>
+            <div className="albumbox">
+              <img src={album.coverPhoto} />
+              <p>{album.name}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }
