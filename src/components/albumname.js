@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { useState, useEffect } from "react"
-import "../styles/albumname.css"
+// import "../styles/albumname.css"
 import myalbums from "./myalbums"
 // import "../actions/actionfile.js"
 
