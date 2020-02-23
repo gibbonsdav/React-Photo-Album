@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import albumname from "./albumname"
 import "../styles/myalbums.css"
 import axios from "axios"
 import { useState, useEffect } from "react"
