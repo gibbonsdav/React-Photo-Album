@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { useState, useEffect } from "react"
-// import "../styles/albumname.css"
-import myalbums from "./myalbums"
+import "../styles/albumname.css"
+// import myalbums from "./myalbums"
 // import "../actions/actionfile.js"
 
 export default props => {
@@ -37,11 +37,13 @@ export default props => {
 
   return (
     <div className="container">
-      <p>{albumname}</p>
+      <p className="aname">{albumname}</p>
       {photos.map(photo => (
-        <Link to={"/picname/" + photo.id}>
-          <img src={photo.url} />
-        </Link>
+        <div className="acontainer">
+          <Link to={"/picname/" + photo.id}>
+            <img src={photo.url} />
+          </Link>
+        </div>
       ))}
     </div>
   )

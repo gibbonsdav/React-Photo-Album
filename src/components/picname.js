@@ -1,11 +1,21 @@
 import React from "react"
 import { Link } from "react-router-dom"
+// import myalbums from "./myalbums"
+// import albumname from "./albumname"
+import { useState, useEffect } from "react"
 
-export default function() {
+export default props => {
+  const [photo, fetchPhotos] = useState([])
+
+  useEffect(() => {
+    const id = props.match.params.id
+    fetchPhotos()
+  }, [])
+
   return (
     <div>
-      <ul></ul>
       <p>picname</p>
+      <img src={photo.url} />
     </div>
   )
 }
